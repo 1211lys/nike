@@ -1,53 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
-import ModalPortal from '../../Portal';
-import Modal from '../../Modal';
-import Login from '../Login/Login';
-import SearchModal from '../SearchModal/SearchModal';
-import ViewItem from '../ViewItem/ViewItem';
+
 import './Nav.scss';
 
-function Nav() {
-  const [loginModal, setLoginModal] = useState(false);
-  const [searchModal, setSearchModal] = useState(false);
-  const [ItemModal, setItemModal] = useState(false);
-
-  const handleToggleLogin = () => {
-    setLoginModal(true);
-  };
-  const handleToggleSearch = () => {
-    setSearchModal(true);
-  };
-  const handleToggleItem = () => {
-    setItemModal(true);
-  };
-
+function Nav({ handleToggleLogin, handleToggleSearch, handleToggleItem }) {
   return (
     <>
-      {loginModal && (
-        <ModalPortal>
-          <Modal>
-            <Login />
-          </Modal>
-        </ModalPortal>
-      )}
-
-      {searchModal && (
-        <ModalPortal>
-          <Modal>
-            <SearchModal />
-          </Modal>
-        </ModalPortal>
-      )}
-
-      {ItemModal && (
-        <ModalPortal>
-          <Modal>
-            <ViewItem />
-          </Modal>
-        </ModalPortal>
-      )}
       <div className="navTop">
         <div className="navTopLeft">
           <p className="navTopLeftItem">조던</p>

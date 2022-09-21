@@ -2,12 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Login.scss';
 
-function Login() {
+function Login({ handleToggleLogin }) {
   return (
     <div className="loginWrapper">
       <div className="formContainer">
         <form action="">
-          <button className="loginModalDelete">
+          <button className="loginModalDelete" onClick={handleToggleLogin}>
             <i className="fa-solid fa-x" />
           </button>
           <p className="loginIcon">나이키</p>

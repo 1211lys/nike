@@ -1,7 +1,35 @@
 import React from 'react';
 import './SearchModal.scss';
 
-function SearchModal() {
+// function useOutsideAlerter(ref) {
+//   useEffect(() => {
+//     /**
+//      * Alert if clicked on outside of element
+//      */
+//     function handleClickOutside(event) {
+//       console.log({ target: event.target });
+//       console.log({ refCurrent: ref.current });
+
+//       // modalSearchContainer
+//       //
+//       if (ref.current && !ref.current.contains(event.target)) {
+//         console.log('success');
+//         // alert('You clicked outside of me!');
+//       }
+//     }
+//     // Bind the event listener
+//     document.addEventListener('mousedown', handleClickOutside);
+//     return () => {
+//       // Unbind the event listener on clean up
+//       document.removeEventListener('mousedown', handleClickOutside);
+//     };
+//   }, [ref]);
+// }
+
+function SearchModal({ handleToggleSearch }) {
+  // const wrapperRef = useRef(null);
+  // useOutsideAlerter(wrapperRef);
+  // <div ref={wrapperRef} className="searchModalWrapper">
   return (
     <div className="searchModalWrapper">
       <div className="searchModal">
@@ -17,7 +45,9 @@ function SearchModal() {
           />
         </div>
         <div className="searchModalRight">
-          <i className="fa-solid fa-x searchModalRightIcon" />
+          <button onClick={handleToggleSearch}>
+            <i className="fa-solid fa-x searchModalRightIcon" />
+          </button>
         </div>
       </div>
       <div className="searchInfo">

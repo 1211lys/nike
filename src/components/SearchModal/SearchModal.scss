@@ -2,10 +2,13 @@
 @import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css';
 
 .searchModalWrapper {
+  width: 100%;
+
   .searchModal {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding-top: 20px;
     margin: 0 50px;
 
     .searchModalCenter {
@@ -24,6 +27,7 @@
         font-size: $font-size-xl;
         border-radius: 20px;
         border: 1px solid $font-color-white;
+        background-color: $font-color-white;
         &:hover {
           border-radius: 25px;
           background-color: lightgrey;
@@ -33,10 +37,11 @@
     .searchModalRight {
       .searchModalRightIcon {
         font-size: 24px;
-        padding: 10px;
-
+        padding: 15px;
+        border-radius: 50%;
+        background-color: $font-color-white;
         &:hover {
-          padding: 10px;
+          padding: 15px;
           border-radius: 50%;
           background-color: lightgrey;
         }
