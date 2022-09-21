@@ -62,6 +62,7 @@
   .navBottomRight {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     width: 450px;
 
     .navBottomRightSearch {
@@ -79,7 +80,7 @@
     }
 
     .navBottomRightInputBar {
-      width: 250px;
+      width: 300px;
       height: 40px;
       padding-left: 50px;
       border: 1px solid white;
@@ -91,17 +92,17 @@
         background-color: lightgrey;
       }
     }
-  }
 
-  .navBottomRightItem {
-    margin-left: 10px;
-    color: $background-color-black;
-    padding: 10px;
-    font-size: 30px;
-    &:hover {
+    .navBottomRightItem {
+      margin-left: 10px;
+      color: $background-color-black;
       padding: 10px;
-      border-radius: 50%;
-      background-color: lightgrey;
+      font-size: 30px;
+      &:hover {
+        padding: 10px;
+        border-radius: 50%;
+        background-color: lightgrey;
+      }
     }
   }
 }

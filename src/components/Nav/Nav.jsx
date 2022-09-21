@@ -7,15 +7,15 @@ import './Nav.scss';
 import Login from '../Login/Login';
 
 function Nav() {
-  const [modalOn, setModalOn] = useState(false);
-
+  const [loginModal, setLoginModal] = useState(false);
+  // const [searchModal, setSearchModal] = useState(false);
   const handleToggleModal = () => {
-    setModalOn(prev => !prev);
+    setLoginModal(prev => !prev);
   };
 
   return (
     <>
-      {modalOn && (
+      {loginModal && (
         <ModalPortal>
           <Modal>
             <Login />
