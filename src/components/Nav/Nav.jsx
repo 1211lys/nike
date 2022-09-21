@@ -3,14 +3,24 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import ModalPortal from '../../Portal';
 import Modal from '../../Modal';
-import './Nav.scss';
 import Login from '../Login/Login';
+import SearchModal from '../SearchModal/SearchModal';
+import ViewItem from '../ViewItem/ViewItem';
+import './Nav.scss';
 
 function Nav() {
   const [loginModal, setLoginModal] = useState(false);
-  // const [searchModal, setSearchModal] = useState(false);
-  const handleToggleModal = () => {
-    setLoginModal(prev => !prev);
+  const [searchModal, setSearchModal] = useState(false);
+  const [ItemModal, setItemModal] = useState(false);
+
+  const handleToggleLogin = () => {
+    setLoginModal(true);
+  };
+  const handleToggleSearch = () => {
+    setSearchModal(true);
+  };
+  const handleToggleItem = () => {
+    setItemModal(true);
   };
 
   return (
@@ -19,6 +29,22 @@ function Nav() {
         <ModalPortal>
           <Modal>
             <Login />
+          </Modal>
+        </ModalPortal>
+      )}
+
+      {searchModal && (
+        <ModalPortal>
+          <Modal>
+            <SearchModal />
+          </Modal>
+        </ModalPortal>
+      )}
+
+      {ItemModal && (
+        <ModalPortal>
+          <Modal>
+            <ViewItem />
           </Modal>
         </ModalPortal>
       )}
@@ -34,7 +60,7 @@ function Nav() {
           <Link to="/sign-in" className="navTopRightItem">
             멤버 가입
           </Link>
-          <button className="navTopRightItem" onClick={handleToggleModal}>
+          <button className="navTopRightItem" onClick={handleToggleLogin}>
             로그인
           </button>
         </div>
@@ -45,7 +71,7 @@ function Nav() {
             나이키
           </Link>
         </div>
-        <div className="navBottomCenter">
+        <div className="navBottomCenter" onMouseEnter={handleToggleItem}>
           <Link to="/item-list" className="navBottomCenterItem">
             New Releases
           </Link>
@@ -68,6 +94,7 @@ function Nav() {
           </div>
           <div className="navBottomRightInput">
             <input
+              onClick={handleToggleSearch}
               type="text"
               placeholder="검색"
               className="navBottomRightInputBar"
